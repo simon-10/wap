@@ -1,0 +1,23 @@
+
+body {
+  font-family: sans-serif;
+  background-color: rgba(134, 128, 128, 0.13);
+  
+}
+
+
+a {
+  text-decoration: underline;
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+  color: rgb(149, 149, 255);
+}
+
+h4{
+    font-weight: bold;
+  text-align: left;
+  color: rgb(149, 149, 255);
+}
