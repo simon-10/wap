@@ -21,3 +21,10 @@ h4{
   text-align: left;
   color: rgb(149, 149, 255);
 }
+img {
+  /* display: block;*/
+ /*  margin: auto; */
+ vertical-align:  baseline ;/*bottom*/
+  margin: 0px;
+
+}
