@@ -140,6 +140,9 @@ function myFunctionTest(expected, found) {
 
   
   console.log("Expected output of max(20,10) is 20  " + myFunctionTest(20, max(20, 10)));
+  
+  console.assert((myFunctionTest(10, max(20, 10)))!="TEST SUCCEEDED",'Failed assert test');
+
   console.log("Expected output of maxOfThree(55,4,44) is 55  " + myFunctionTest(44, maxOfThree(55, 4, 44)));
   console.log("Expected output of isVowel('o') is true  " + myFunctionTest(true,isVowel('o')));
   console.log("Expected output of sum([1,2,3,4]) is 10  " + myFunctionTest(10,sum([1,2,3,4])));
