@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <br>
+    <form action="" >
+        <label for="email">Email Address</label><br>
+        <input type="email" id="email" name="email"  placeholder="Enter Email" style="width:300px;" ><br>
+        <label  style="color: gray">We will never share your Email with anyone else</label><br><br>
+        <label for="passw">Password</label><br>
+        <input type="password" id="passw" name="passw" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" 
+        title="Must contain at least one  number and one uppercase and lowercase letter, and at least 10 or more characters
+        " style="width:300px;"><br>
+        <label for="weburl">URL</label><br>
+        <input type="url" id="weburl" name="weburl"  pattern="https?://.+" title="Include https://" style="width:300px;"><br>
+        <input type="checkbox" id="chk" name="chk" >
+        <label for="chk">Check Out Me</label><br>
+        <input type="submit" value="Submit">
+      </form>
+    </body>
+</html>
