@@ -1,0 +1,9 @@
+done clock with class; and the most interesting thing that I've learned in this exercise is, in start method:" this.timer = setInterval(() => this.render(), 1000);"
+
+I understood the reason why we are using functional programming solution for that is, 
+setInterval accepts to parameters, fuction and time in millisecond. 
+since render is a method(not a function) in a class, we can not directly put in the function argument of the setInterval. So, we put render() as a return inside anonymous function and solved.
+
+
+
+2. super constructor in derived class must be called and initialized within child class constructor before accessing 'this' or returning.
