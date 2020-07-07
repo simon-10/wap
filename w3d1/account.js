@@ -58,11 +58,14 @@ class Account {
      */
     withdraw(amount) {
         if (amount <= 0) {
+            
             throw new RangeError("Withdraw amount has to be greater than zero");
         }
         if (amount > this._balance) {
+            
             throw Error("Insufficient funds");
         }
+        
         this._balance -= amount;
     }
 

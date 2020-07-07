@@ -20,14 +20,15 @@ class Savingsaccount extends Account{
     endOfMonth() {
         //let addedInterest=this.getBalance * this._interest / 100;
         //this.addInterest()
-        alert("inside");
-        return "Interest added SavingsAccount:"+ this.number +" balance: "+ this.getBalance +"interest:"+ this.getBalance * this._interest / 100;
+       
+        //alert( "Interest added SavingsAccount:"+ this.getNumber() +" balance: "+ this.getBalance() +"interest:"+ (this.getBalance() * this._interest / 100));
+        
+        return "Interest added SavingsAccount:"+ this.getNumber() +" balance: "+ this.getBalance() +"interest:"+ (this.getBalance() * this._interest / 100);
         
     }
 
     toString() {
-        alert("tostring");
-        return "Account " + this._number + ": interest " + this.interest;
+        return "Account " + this._number + ": interest " + this._interest;
     }
 
 }

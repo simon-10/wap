@@ -2,44 +2,69 @@
 
 
 describe("Account methods testing", function(){
-    var acc=new Account(1);
-    var saving=new Savingsaccount(2);
-    var checking=new CheckingAccount(3);
-    var bank=new Bank();
-   
+    let acc=new Account(1);
     
    
-    it("We should get 100 when we invoke getNumber method", function(){
+    it("Testing getNumber of Account", function(){
         assert.equal(100, new Account(100).getNumber());
     });
 
-    it("Testing deposit ", function(){
+    it("Testing deposit of Account ", function(){
         acc.deposit(300);
         assert.equal(300, acc.getBalance());
         
     });
 
-    it("Testing withdraw, withdraw 100 from 300 balance and expected balance is 200 ", function(){
+    it("Testing with draw and getBalance of Account", function(){
         acc.withdraw(100);
         assert.equal(200, acc.getBalance());
         
     });
+        
+});
+
+
+
+
+
+
+
+
+describe("Saving Account Test", function(){
+
+    let saving=new Savingsaccount(2);
+
     it("Testing getInterest of SavingAccount", function(){
         assert.equal(5, saving.getInterest());
     });
 
-    // it("Testing setInterest of SavingAccount", function(){
-    //     saving.setInterest(6);
-    //     assert.equal(6, saving.getInterest());
-    // });
+    it("Testing setInterest of SavingAccount", function(){
+        saving.setInterest(7);
+        assert.equal(7, saving.getInterest());
+    });
 
     it("Testing addInterest of SavingAccount", function(){
         saving.deposit(250);
         saving.addInterest();
 
-        assert.equal(262.5, saving.getBalance());
+        assert.equal(267.5, saving.getBalance());
     });
 
+    it("Testing endOfMonth of SavingAccount", function(){
+        assert.equal("Interest added SavingsAccount:"+ saving.getNumber() +" balance: "+ saving.getBalance() +"interest:"+ (saving.getBalance() * saving._interest / 100),saving.endOfMonth());
+    });
+})
+
+
+
+
+
+
+
+
+describe("Checking Account Test", function(){
+
+    let checking=new CheckingAccount(3);
 
     it("Testing getOverdraft of CheckingAccount", function(){
         
@@ -48,9 +73,27 @@ describe("Account methods testing", function(){
 
     it("Testing setOverdraft of CheckingAccount", function(){
         checking.setOverdraft(750);
-        
-        assert.equal(750, checking.getOverdraft());
+        checking.withdraw(500); 
+        assert.equal(250, checking.getOverdraft());
     });
+
+    it("Testing endOfMonth of CheckingAccount", function(){
+               
+        assert.equal("Warning, low balance CheckingAccount: "+ checking.getNumber() +"balance: "+ checking.getBalance()+" overdraft limit:"+checking._overdraft, checking.endOfMonth());
+    });
+
+})
+
+
+
+
+
+
+
+
+describe("Bank  Test", function(){
+    
+    let bank=new Bank();
 
     it("Testing addAccount of Bank", function(){
                
@@ -66,13 +109,9 @@ describe("Account methods testing", function(){
                
         assert.equal(3, bank.addCheckingAccount(650));
     });
-
+    
     it("Testing closeAccount of Bank", function(){
                
         assert.equal(2, bank.closeAccount(2));
     });
-
-    
-
-    
-});
+})

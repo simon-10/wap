@@ -13,21 +13,28 @@ class CheckingAccount extends Account{
     }
 
     withdraw(amount) {
-        if (amount <= 0) {
-            throw new RangeError("Withdraw amount has to be greater than zero");
-        }
+       
 
-        if (amount > (this.getBalance + this._overdraft)) {
+        
+        if (amount > (this.getBalance() + this._overdraft)) {
+            
             throw Error("Insufficient funds");
         }
-        if (amount > (this.getBalance + this._overdraft)){
-        this.withdraw()
+
+        if(amount>this.getBalance()){
+            this._overdraft=this._overdraft-amount-this.getBalance();
+            return ;
+        }
+
+        if (amount < (this.getBalance() + this._overdraft)){
+            super.withdraw(amount);
         }
       }
 
       endOfMonth(){
-          if(this.getBalance<0){
-            return "Warning, low balance CheckingAccount: "+ this.number +"balance: "+ this.getBalance+" overdraft limit:"+this._overdraft;
+         
+          if(this.getBalance()==0){
+              return "Warning, low balance CheckingAccount: "+ this.getNumber() +"balance: "+ this.getBalance()+" overdraft limit:"+this._overdraft;
           }
           else{
               return "";
@@ -35,6 +42,6 @@ class CheckingAccount extends Account{
     }
 
       toString() {
-        return "Account " + this._number + ": overdraft " + this._overdraft;
+        return "Account " + this.getNumber()+ ": overdraft " + this._overdraft;
     }
 }
