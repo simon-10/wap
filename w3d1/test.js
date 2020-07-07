@@ -1,7 +1,7 @@
 
 
 
-describe("Account methods testing", function(){
+describe("Account Test", function(){
     let acc=new Account(1);
     
    
