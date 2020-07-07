@@ -36,70 +36,52 @@ function isVowel(ch){
 
 
 function sum(numArr=[]) {
-
-    let init=0;
-    const sum=numArr.reduce(function(accumlator, currentVal){
-        return accumlator + currentVal;}, init);
-
-    return sum;
+    return numArr.reduce((accomulator,currentVal)=>accomulator + currentVal);
 }
 
 
 
 function multiply(numArr=[]) {
-    
-    return numArr.reduce((accumlator,currentVal)=>accumlator*currentVal);
-  
+    return numArr.reduce((accomulator,currentVal)=>accomulator * currentVal);
 }
 
 
 
 
 function reverse(name){
-
-    const reverseString = (str) => {
-        return str.split('').reverse().join('');
-    };
-    // let reversed='';
-    // for(let i=name.length-1; i>=0; i--){
-    //     reversed=reversed+name.charAt(i);
-
-    // }
-
-
-    return reverseString;
-    //return name.map(name.chartAt)
+   
+    return name.split("").reduce((rev, char)=> char + rev, '');
 
 }
 
 
 
 function findLongestWord(arrWords=[]) {
+    let longest;
+    let len=0;
+    // for(let i=0; i<arrWords.length;i++){
+    //     if(arrWords[i].length>len){
+    //         len=arrWords[i].length;
+    //         longest=arrWords[i];
+    //     }
+
+    // }
+
+    // return longest;
 
 
-    let longest=arrWords[0];
-    let len=arrWords[0].length;
+    const words=arrWords.filter(word=>{if(word.length>len){
+                                        len=word.length;
+                                        return word;
+    }});
 
-    const longetWord=arrWords.fi
-    for(let i=0; i<arrWords.length;i++){
-        if(arrWords[i].length>len){
-            len=arrWords[i].length;
-            longest=arrWords[i];
-        }
-
-    }
-
-    return longest;
-
+    return words[0].length>words[1]?words[0]:words[1];
 }
 
 
 
 function filterLongWords(arrWords=[], i){
-   
-    
-
-    return arrWords.filter(word => word.length > i);
+   return arrWords.filter(word => word.length > i);
         
 
 }
