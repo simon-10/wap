@@ -36,11 +36,10 @@ function isVowel(ch){
 
 
 function sum(numArr=[]) {
-    let sum=0;
-    for(let i=0; i<numArr.length; i++){
-        sum+=numArr[i];
 
-    }
+    let init=0;
+    const sum=numArr.reduce(function(accumlator, currentVal){
+        return accumlator + currentVal;}, init);
 
     return sum;
 }
@@ -48,34 +47,40 @@ function sum(numArr=[]) {
 
 
 function multiply(numArr=[]) {
-    let product=1;
-    for(let i=0; i<numArr.length; i++){
-        product*=numArr[i];
-
-    }
-
-    return product;
+    
+    return numArr.reduce((accumlator,currentVal)=>accumlator*currentVal);
+  
 }
 
 
 
 
 function reverse(name){
-    let reversed='';
-    for(let i=name.length-1; i>=0; i--){
-        reversed=reversed+name.charAt(i);
 
-    }
+    const reverseString = (str) => {
+        return str.split('').reverse().join('');
+    };
+    // let reversed='';
+    // for(let i=name.length-1; i>=0; i--){
+    //     reversed=reversed+name.charAt(i);
 
-    return reversed;
+    // }
+
+
+    return reverseString;
+    //return name.map(name.chartAt)
 
 }
 
 
 
 function findLongestWord(arrWords=[]) {
-    let longest;
-    let len=0;
+
+
+    let longest=arrWords[0];
+    let len=arrWords[0].length;
+
+    const longetWord=arrWords.fi
     for(let i=0; i<arrWords.length;i++){
         if(arrWords[i].length>len){
             len=arrWords[i].length;
