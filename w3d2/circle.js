@@ -6,3 +6,7 @@ $('#cir').click(function() {
   $('#cir').ready(function() {
      $('#cir').toggleClass('resize');
   })
+
+  $('#start').click(function(){
+    $('#cir').toggleClass('remove');
+  })
