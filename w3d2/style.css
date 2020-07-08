@@ -1,40 +1,36 @@
 /* transform: scale(0); */
 
-.container{
-    display: grid;
-    grid-template-columns: 50% 50%;
+#container{
+    display: flex;
+    flex-direction: row;
 }
 
-#cir{
-    /* margin: auto; */
-    transform: scale(1);
+/* #circle#container{
+    display: flex;
+    flex-direction: row;
+} */
+
+.circle{
+    margin: auto;
+    /* transform: scale(0); */
 
     margin-top: 100px;
-    width: 50px;
-    height: 50px;
+    width: 0;
+    height: 0;
     border-radius: 50%;
     background-color: #C00;
-    transition: all 0.25s;
+    /* transition: all 0.25s; */
    
  
 }
 
-#cir.resize{
 
-    transform: scale(10);
-}
+
+
 
 .controls{
+    position: fixed;
     width: 200px;
    
 }
 
-#cir.remove {
-    margin: 0;
-    margin-top: 100px;
-    width: 0;
-    height: 0;
-    border-radius: 0%;
-    /* background-color: #C00; */
-    /* transform: scale(0); */
-  }
