@@ -1,20 +1,11 @@
 
 $(document).ready(function(){
-var tim=null;
-//   $('.circle').ready(function() {
-//      $('.circle').toggleClass('resize');
-//   })
+    var tim=null;
 
-  $('#start').click(function(){
+    $('#start').click(function(){
+      const txtCircles=parseInt($('#numbercircles').val());
 
-    
-   
-    const txtCircles=parseInt($('#numbercircles').val());
-
-    for(let i=0;i<txtCircles; i++ ){
-
-
-
+     for(let i=0;i<txtCircles; i++ ){
         var x = Math.floor(Math.random() * 256);
         var y = Math.floor(Math.random() * 256);
         var z = Math.floor(Math.random() * 256);
@@ -23,15 +14,18 @@ var tim=null;
 
         $("<div></div>")
         .addClass("circle")
+        .css("background-color", bgColor)
         .insertAfter("#controls");
-
-        $('.circle').css("background-color",bgColor);
+       
     }
-   
 
     tim=setInterval(resizer, $('#growthrate').val());
    
   })
+
+
+
+
 
 
   function resizer(){
@@ -39,25 +33,19 @@ var tim=null;
     const txtWidth=parseInt($('#width').val());
     const cssWidth=parseInt($('.circle').css("width"));
     const txtGrowth=parseInt($('#growthamount').val());
-    
-
-    
-   
-          
+              
     $('.circle').css("width", parseInt($('.circle').css('width')) + txtGrowth + "px");
     $('.circle').css("height", parseInt($('.circle').css('width')) + txtGrowth + "px");
-          
+
+
+
+    $(".circle").click(function() {
+        clearInterval(tim);
+        $('.circle').css("width", 0 + "px");
+        $('.circle').css("height", 0 + "px");
+        
+      });
     
   }
-
-
-  $('.circle').click(function() {
-       
-    clearInterval(tim);
-
-    $('.circle').css("width", 0 + "px");
-    $('.circle').css("height", 0 + "px");
-    
-  });
 
 })

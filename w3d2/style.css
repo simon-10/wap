@@ -1,31 +1,18 @@
-/* transform: scale(0); */
+
 
 #container{
     display: flex;
     flex-direction: row;
 }
 
-/* #circle#container{
-    display: flex;
-    flex-direction: row;
-} */
 
 .circle{
     margin: auto;
-    /* transform: scale(0); */
-
     margin-top: 100px;
-    width: 0;
-    height: 0;
     border-radius: 50%;
-    background-color: #C00;
-    /* transition: all 0.25s; */
+    position: relative;
    
- 
 }
-
-
-
 
 
 .controls{
