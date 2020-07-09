@@ -1,43 +1,46 @@
 
 var counter=0;
-
+var reset=0;
 $(function(){
-   
-        $("#start").mouseover(resetPoint);
-        $("#maze .boundary").mouseover(turnRed);
-        $("#end").mouseover(endPoint);
-        $("#maze").mouseleave(leftGame);
+
+    $("#maze .boundary").mouseover(turnRed);
+    $("#end").mouseover(endPoint);
+    $("#maze").mouseenter(mazeEnter)
+   // $("#maze").mouseout(mazeOut)
+    $("#start").mouseover(resetPoint);
   
 });
 
-function turnRed(evt) {
-    $("#maze .boundary").addClass('youlose');
-    counter ++;
+// function mazeOut(){
+//     reset=0;
+// }
+
+function mazeEnter(){
+    reset++;
 }
 
 
+
+function turnRed(evt) {
+    $("#maze .boundary").addClass('youlose');
+     counter ++;
+}
+
+
+
 function endPoint(evt){
-    if(counter==0 &&  $("#start").mouseover()==true){
+    if(counter==0 && reset>0){
         $("#status").text("You won");
     }
 
     else{
         $("#status").text("You lost");
     }
-
 }
 
-function resetPoint(){
-       
+
+function resetPoint(evt){
     $("#maze .boundary").css('background-color','#eeeeee');
-    window.location.reload();
-    //location.reload();
-    // if($("#maze").mouseleave(leftGame)){
-       
-    //     counter++
-    // }
+    location.reload();
 }
 
-function leftGame(evt){
-    counter++;
-}
